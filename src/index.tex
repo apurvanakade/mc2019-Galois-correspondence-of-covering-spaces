@@ -1,0 +1,45 @@
+\documentclass[reqno, oneside]{article}
+\usepackage{style/preamble}
+\usepackage{style/mytikz}
+\usepackage{mathpazo}
+\usepackage{parskip}
+\setuptodonotes{disable}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Mathcamp 2019}
+\lhead{Covering Spaces}
+\cfoot{\thepage}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+\pgfplotsset{compat=newest}
+
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\groupaction}{\rotatebox{90}{$\circlearrowright$}}
+\newcommand{\midarrow}{\tikz \draw[-triangle 90] (0,0) -- +(.1,0);}
+
+\title{Galois Theory of Covering Spaces}
+\author{\small{Apurva Nakade}}
+\date{}
+
+\begin{document}
+  \cleardoublepage
+  \pagenumbering{roman}
+  \setcounter{tocdepth}{2}
+  \maketitle
+  \tableofcontents
+  \cleardoublepage
+  \pagenumbering{arabic}
+
+  \include{00}
+  \include{01}
+  \include{02}
+  \include{03}
+  \include{04}
+  \include{05}
+\end{document}

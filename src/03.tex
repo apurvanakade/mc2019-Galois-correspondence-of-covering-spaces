@@ -1,0 +1,215 @@
+\section{Galois correspondence of covering spaces}
+For this section, fix a Galois cover $p: Y \longrightarrow X$.
+
+\begin{lemma}
+\label{lemma:compositionOfCovers}
+  If $p$ factors through a space $Z$ as
+  \begin{equation*}
+    \begin{tikzcd}
+      Y \ar[rd, "p_1"] \ar[dd, "p"']\\
+        & Z \ar[ld,"p_2"] \\
+      X
+    \end{tikzcd}
+  \end{equation*}
+  and if $p_2$ is a cover, then so is $p_1$.
+  In this case, we say that $Z$ is a cover \emph{lying between $Y$ and $X$.}
+\end{lemma}
+\begin{qbox}
+  Prove Lemma \ref{lemma:compositionOfCovers} by drawing pictures.
+\end{qbox}
+
+\begin{lemma}
+\label{lemma:lemma2}
+  If $p_2:Z \rightarrow X$ be a cover. Let $f$, $g$ be simplicial maps $Y \rightarrow Z$ that fit into a commutative diagram
+  \begin{equation*}
+    \begin{tikzcd}
+      Y \ar[rr, shift left, "f"] \ar[rr, shift right, "g"']  \ar[rd, "p"']
+      & & Z \ar[ld,"p_2"] \\
+      & X
+    \end{tikzcd}
+  \end{equation*}
+  If $f(y_0) = g(y_0)$ for some vertex $y_0$ in $Y$ then $f = g$.
+\end{lemma}
+\begin{qbox}
+  Prove Lemma \ref{lemma:lemma2} for vertices i.e. show that $f(y) = g(y)$ for all vertices $y$ in $Y$. To do this, take a path $\gamma$ in $Y$ from $y_0$ to $y$, push it down to $X$ via $p$ and lift it up to $Z$ via $p_2$. Use induction on the length of $\gamma$.
+\end{qbox}
+
+
+\begin{proposition}
+  If $Z$ is a cover lying between $Y$ and $X$, then $p_1: Y \rightarrow Z$ is a Galois cover.
+\end{proposition}
+\begin{proof}
+  We have already shown that $p_1$ is a cover in Lemma \ref{lemma:compositionOfCovers}.
+  In order to show that it is Galois we will use the criterion of Theorem \ref{theorem:GaloisCriterion}:
+  ``$p_1$ is Galois if and only if $\Gal(Y|Z)$ acts freely, transitively on all the fibers.''
+  First note that every deck transformation of $Y \rightarrow Z$ is also a deck transformation of $Y \rightarrow X$
+  \begin{equation*}
+    \begin{tikzcd}
+      Y \ar[rr, "\varphi"] \ar[rd, "p_2"] \ar[rdd, "p"']
+      & & Y \ar[ld,"p_2"'] \ar[ldd, "p"]\\
+      & Z \ar[d] \\
+      & X
+    \end{tikzcd}
+  \end{equation*}
+  Hence $\Gal(Y|Z)$ is a subgroup of $\Gal(Y|X)$.
+  We want to show that $\Gal(Y|Z)$ acts freely, transitively on the fibers $p_2^{-1}(Z)$.
+  The freeness is by Theorem \ref{theorem:freenessGaloisAction} so we only need to prove transitivity.
+
+  Pick an arbitrary element $z$ in $Z$ and let $y_1$ and $y_2$ be elements in the fiber $p_2^{-1}(z)$.
+  As $Y \rightarrow X$ is Galois, there is a deck transformation $\varphi \in \Gal(Y|X)$ such that $\varphi(y_1) = y_2$.
+
+  \textbf{Claim:} $\varphi$ is in $\Gal(Y|Z)$.
+
+  To prove this claim, apply Lemma \ref{lemma:lemma2} to the following commutative diagram
+  \begin{equation*}
+    \begin{tikzcd}
+      Y \ar[rr, shift left, "p_1"] \ar[rr, shift right, "p_1 \circ \varphi"']  \ar[rd, "p"']
+      & & Z \ar[ld,"p_2"] \\
+      & X
+    \end{tikzcd}
+  \end{equation*}
+  Check that we can apply lemma 2: 1) $\varphi$ is a deck transformation of $p$, hence the diagram commutes. 2) $p_1(y_1) = p_1 \circ \varphi(y_1) = z$.
+  By Lemma \ref{lemma:lemma2}, $p_1 = p_1 \circ \varphi$ i.e. $\varphi$ is a deck transformation in $\Gal(Y|Z)$.
+  Hence, the action of $\Gal(Y|Z)$ on the fibers of $p_2$ is transitive.
+\end{proof}
+
+\begin{proposition}
+  If $Z$ is a cover lying between $Y$ and $X$, and $p_2:Z \rightarrow X$ is Galois, then $\Gal(Y|Z)$ is a normal subgroup of $\Gal(Y|X)$, and\footnote{This is equivalent to saying that the following sequence is exact. \begin{equation*}
+    1 \rightarrow \Gal(Y|Z) \rightarrow \Gal(Y|X) \rightarrow \Gal(Z|X) \rightarrow 1
+  \end{equation*}}
+    \begin{align*}
+      \Gal(Z|X) \cong \Gal(Y|X) / \Gal(Y|Z).
+    \end{align*}
+\end{proposition}
+\begin{proof}
+  Let $\varphi \in G$ be a deck transformation in $\Gal(Y|X)$. We will first show that $\varphi$ descends to a deck transformation in $\Gal(Z|X)$ i.e. there is a $\psi$ that fits in the commutative diagram
+  \begin{equation*}
+    \begin{tikzcd}
+      Y \ar[rrrr, "\varphi"] \ar[rd, "p_1"']
+      & & & &
+      Y  \ar[ld, "p_1"]\\
+      & Z \ar[rr, shift left, "\psi"] \ar[rd,"p_2"']
+      & & Z \ar[ld,"p_2"] \\
+      & &  X
+    \end{tikzcd}
+  \end{equation*}
+  To do this, pick an element $y \in Y$ and let $ z = p_1(y)$.
+  Because $Z \rightarrow X$ is Galois, there is a unique deck transformation $\psi \in \Gal(Z|X)$ which sends $p_1(y)$ to $p_1(\varphi(y))$.
+  We need to show that $p_1 \circ \varphi = \psi \circ p_1$.
+  For this, apply Lemma \ref{lemma:lemma2} to the following commutative diagram
+  \begin{equation*}
+    \begin{tikzcd}
+      Y \ar[rr, shift left, "\psi \circ p_1"] \ar[rr, shift right, "p_1 \circ \varphi"']  \ar[rd, "p"']
+      & & Z \ar[ld,"p_2"] \\
+      & X
+    \end{tikzcd}
+  \end{equation*}
+  \begin{qbox}
+    Finish the above argument. Then show that $\varphi \mapsto \psi$ defines a group homomorphsism $\Gal(Y|X) \rightarrow \Gal(Z|X)$ with kernel $\Gal(Y|Z)$ thereby completing the proof.
+  \end{qbox}
+\end{proof}
+
+
+
+
+
+\begin{proposition}
+  If $Z$ is a cover lying between $Y$ and $X$ and $\Gal(Y|Z)$ is a normal subgroup of $\Gal(Y|X)$, then $p_2:Z \rightarrow X$ is Galois.
+\end{proposition}
+  \begin{qbox}
+    Using $Z \cong Y/H$, $X \cong Y/G$, argue that $X \cong Z/(G/H)$. Use this to prove the Proposition.
+  \end{qbox}
+
+
+
+
+
+\begin{theorem}[Galois Correspondence of Covering Spaces]
+  There is a 1-1 correspondence between the subgroups of $\Gal(Y|X)$ and covers of $X$ that lie between $Y$ and $X$, given by the following maps
+  \begin{align*}
+    \{\mbox{ subgroups of $\Gal(Y|X)$ } \} &\longleftrightarrow  \{\mbox{ covers lying between $Y$ and $X$ } \}\\
+    H &\longmapsto Y/H \\
+    \Gal(Y|Z) & \longmapsfrom Z
+  \end{align*}
+  Under this correspondence, the normal subgroups of $\Gal(X|Y)$ correspond to Galois covers of $X$.
+\end{theorem}
+\begin{qbox}
+  We have proved all the parts of this theorem. Write down the proof explicitly and see how the various pieces fit together.
+\end{qbox}
+
+\begin{remark}
+  There is a subtle point here about what the correspondence is between. On the right hand side, the objects are not spaces $Z$ but the triangles of the form \begin{equation*}
+    \begin{tikzcd}
+      Y \ar[rd, "p_1"] \ar[dd, "p"']\\
+        & Z \ar[ld,"p_2"] \\
+      X
+    \end{tikzcd}
+  \end{equation*}
+\end{remark}
+
+
+\begin{qbox}
+  Explicitly right down the Galois correspondence for
+  \begin{enumerate}
+    \item The covers of $S^1 \vee S^1$ in Figure \ref{fig:CoveringsOfS1S1}.
+    \item The cover $\bbr^1 \rightarrow S^1$.
+  \end{enumerate}
+\end{qbox}
+
+
+
+
+
+
+
+
+
+
+\iffalse
+\section*{Review the following for tomorrow}
+For tomorrow's class, please review/lookup \emph{presentation of a group}. The following statements should make sense to you
+\begin{align*}
+  \bbz &= \langle a \rangle \\
+  \bbz/n &= \langle a | a^n \rangle \\
+  \bbz \times \bbz &= \langle a, b | ab a^{-1} b^{-1} \rangle \\
+  D_{2n} &= \langle r, s | r^n, s^2, (rs)^2 \rangle && \mbox{ where $D_{2n}$ is the Dihedral group.}
+\end{align*}
+
+
+
+
+
+
+
+
+\section{Lifting properties of covering spaces}
+
+
+We have a complete description of what the covers lying between $X$ and $Y$ are.
+
+\begin{theorem}
+  \label{theorem:liftingOfCovers}
+  Consider covering maps
+  \begin{equation*}
+    \begin{tikzcd}
+      & X \ar[d,"p"] \\
+      Z \ar[r, "p'"']& Y
+    \end{tikzcd}
+  \end{equation*}
+  along with vertices $x \in X, y \in Y, z \in Z$ with $p(x) = z = p'(y)$. There exists a map $p'':Z \rightarrow X$ which factors $p'$ with $p'(z) = y$ if and only if
+  \begin{align*}
+    p'_*\pi_1(Z,z) \le p_* \pi_1(X,x).
+  \end{align*}
+  In this case, the lift $p''$ is unique.
+\end{theorem}
+
+  \begin{corollary}
+    A simply connected space has no non-trivial (connected) covers.
+  \end{corollary}
+
+  A map between spaces $p:X \rightarrow Y$ naturally induces a map between fundamental groups
+  \begin{equation*}
+    p_*: \pi_1(X,x) \rightarrow \pi_1(Y,y)
+  \end{equation*}
+
+  \fi

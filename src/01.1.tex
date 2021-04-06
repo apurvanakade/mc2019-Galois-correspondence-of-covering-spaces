@@ -1,0 +1,134 @@
+\section{Group actions on topological spaces}
+  Let us start with reviewing some topology.
+
+  \subsection{Topological prelimaniraries}
+  A topological spaces $\calx$ is a set with a collection of open sets.
+  The only facts we need from topology are the following.
+  \begin{enumerate}
+    \item For every point $x \in \calx$, there is an open set (called a \emph{neighborhood} of $x$) $U$ containing $x$.
+    \item For every continuous function $f: \calx \rightarrow \caly$ the inverse $f^{-1}(U)$ of an open set $U$ is open.
+  \end{enumerate}
+
+  The examples of importance to us come from graphs.
+  From a graph we can form a topological space by taking a point for each vertex $v$ and gluing a segment $[0,1]$ appropriately for each edge.
+
+  \begin{ex}[Examples of graphs]
+    \begin{enumerate}
+      \item $S^1$
+      \item $[0,n]$
+      \item
+      \item
+    \end{enumerate}
+  \end{ex}
+
+  A \emph{space over $\calx$} is a space $\caly$ with a continuous map $\pi_\caly: \caly \rightarrow \calx$.
+  Denote by $\cat{Spaces}_\calx$ the collection of all spaces over $\calx$.
+  A map lying over $\calx$ between $\caly, \calz \in \cat{Spaces}_\calx$ is a map $f: \caly \rightarrow \calz$ such that the following diagram commutes
+  \begin{equation*}
+    \begin{tikzcd}
+      \caly \arrow[rr,"f"] \arrow[rd,"\pi_\caly"']
+      &&
+      \calz \arrow[ld,"\pi_\calz"]\\
+      & \calx
+    \end{tikzcd}.
+  \end{equation*}
+  For $\caly \in \cat{Spaces}_\calx$, the \emph{fiber} over a vertex $v \in \calx_0$ is the set $\pi_\caly^{-1}(v)$.
+
+  We now come to our first non-trivial definition.
+  \begin{definition}
+    $\caly \in \cat{Spaces}_\calx$ is called a \emph{cover} (or a \emph{covering space}) of $\calx$ if every point $y \in \caly$ has an open neighborhood $U$ satisfying
+    \begin{enumerate}
+      \item $\pi_\caly^{-1}(U)$ is homeomorphic to a disjoint union of spaces $\bigsqcup_{i \in I} U_i $,
+      \item $\pi_\caly$ restricted to each $U_i$, for $i \in I$, is a homeomorphism onto $U$.
+    \end{enumerate}
+    A cover $\caly$ is a \emph{finite} cover if the set $I$ is finite for each such $U$.
+  \end{definition}
+
+
+    \begin{figure}[H]
+    \centering
+      \includegraphics[width=5cm]{example-image}
+      % \includegraphics[width=]{}
+      \caption{pancake picture of covering space}
+    \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+  \subsection{Group actions}
+  Whenever a group $G$ acts on a set $X$ we can form the set of orbits $\calG \backslash X$, and there is a natural projection map
+  \begin{align*}
+    \pi: X \rightarrow G \backslash X.
+  \end{align*}
+  We'll use this to produce covering  maps.
+
+  A left group action of $G$ on a space $\calx$, denoted $G \groupaction \calx$, is a collection of continuous maps
+  \begin{align*}
+    g \cdot - : X &\longrightarrow X\\
+    x &\longmapsto gx
+  \end{align*}
+  satisfying $ex = x$, where $e$ is the identity element in $G$ and $g(hx) = (gh)x$ for all $g,h \in G$.
+
+  We say that the action of $G$ is \emph{properly discontinous} if every $x \in \calx$ has an open neighborhood $U_x$ such that
+  \begin{align*}
+    gU_x \cap hU_x = \varnothing
+  \end{align*}
+  for all $g \neq h \in G$.
+  We'll call such a neighborhood \emph{good}. Note that if $U_x$ is a good neighborhood of $x$ and $V \subseteq U_x$ then $V$ is also good.
+
+  If $G \groupaction \calx$ is properly discontinous, then $\calG \backslash X$ is a topological space whose underlying set is the set of orbits $\calG \backslash X$ and the neighborhood of each point $x$ is the image of a good neighborhood $U_x$ under the quotienting map
+
+
+
+  The covering maps which can be obtained in this manner are called \emph{Galois coverings} i.e. a covering $\caly \rightarrow \calx$ is called a \emph{Galois cover} if there is a group $G$ such that $\calx \cong \caly / G$.
+  The \emph{Galois group}, of a cover $p:Y \rightarrow X$ is the group of self-maps $q: Y \rightarrow Y$ lying over $X$
+  \begin{align*}
+    \Gal(\caly|\calx) = \{ q: Y \rightarrow Y : p = q \circ p \}.
+  \end{align*}
+
+  The group $\Gal(\caly|\calx)$ naturally acts on the space $\caly$, and it fixes the fiber over each $v \in \calx_0 $.
+  Because of this $\Gal(\caly|\calx)$ is called the group of \emph{deck transformations}, as one can think of the action of $\Gal(\caly|\calx)$ on the fibers over $x$ as shuffling a deck of cards.
+
+	Thus there is a homomorphism $\Gal(\caly|\calx) \rightarrow \Gal(\pi^{-1}(v))$, where $\Gal(\pi^{-1}(v))$ is the permutation group of the set $\pi^{-1}(v)$. Turns out, this homomorphism is injective, in fact, a much stronger statement is true.
+
+	\begin{theorem}
+		If $g \in \Gal(\caly|\calx)$ fixes a point $y \in Y$ then $g = \id_{\caly}$.
+	\end{theorem}
+
+	\begin{theorem}
+		If $G$ acts on a graph $\caly$ and $\calx = \caly / G $ then $\Gal(\caly|\calx) \cong G$.
+	\end{theorem}
+	Note that this determines $G$ completely in terms of the spaces $X$ and $Y$.
+	\begin{proof}
+		There is a natural map $G \rightarrow \Gal(\caly|\calx)$.
+	\end{proof}
+
+  \begin{theorem}
+    A finite cover $p:Y \rightarrow X$ is Galois if and only if the Galois group $\Gal(\caly|\calx)$ acts transitively on the fibers $\pi^{-1}(x)$ for any $x \in X$.
+  \end{theorem}
+
+  \begin{corollary}
+    A finite cover $p: Y \rightarrow X$ is Galois if and only if $\abs{\Gal(\caly|\calx)} = \abs{{p}^{-1}(x)}$.
+  \end{corollary}
+
+  For a cover $p:Y \rightarrow X$, we say that a cover $q:Z \rightarrow X$ lies between $X$ and $Y$ if the map $p$ factors as
+  \begin{equation*}
+    \begin{tikzcd}
+      Y \ar[rd, "p"'] \ar[r,"p'"]& Z \ar[d, "q"]
+      \\
+      &X
+    \end{tikzcd}
+  \end{equation*}
+
+  \begin{proposition}
+    With the notation as above, $p':Y \rightarrow Z$ is also a covering map. Further if $p$ is Galois then so is $p'$.
+  \end{proposition}
+
+  

@@ -1,0 +1,30 @@
+\maketitle
+\section*{Motivation: Why covering spaces?}
+\todo[inline]{Topologists have a love-hate relationship with topological spaces.}
+One way to understand spaces is to associate an algebraic invariant to them.
+\begin{equation*}
+  \begin{tikzcd}
+    \mbox{Topological Space} \ar[rr] && \mbox{Algebraic invariant} \\
+    \mbox{For example: Knot} \ar[r] & \mbox{Knot projection} \ar[r] & \mbox{Knot invariant}
+  \end{tikzcd}
+\end{equation*}
+where a knot invariant can be a number, polynomial, vector space, chain complex, etc.
+
+It is rarely possible to compute an invariant directly using definition.
+Instead, there are two main strategies in algebraic topology to compute these algebraic invariants:
+\begin{enumerate}
+  \item Break a space $X$ up into smaller spaces,
+  \begin{align*}
+    X = X_1 \cup \dots \cup X_n.
+  \end{align*}
+  This is called \emph{excision}.
+  \item Map another space $Y$ into $X$ and recover information about $X$ using $Y$.
+  \begin{align*}
+    Y \longrightarrow X
+  \end{align*}
+  This is where covering spaces come in. A covering map $Y \rightarrow X$ provides us information about the fundamental group/first homotopy group $\pi_1(X)$.
+  We will show later on that if $\pi_1(Y) \triangleleft \pi_1(X)$ then there is a short exact sequence of groups
+  \begin{equation*}
+    1 \rightarrow \pi_1(Y) \rightarrow \pi_1(X) \rightarrow \Gal(Y|X) \rightarrow 1
+  \end{equation*}
+\end{enumerate}

@@ -1,0 +1,28 @@
+\begin{proposition}
+    If $\calx$ is a tree then every cover of $\calx$ is isomorphic to $\calx$.
+  \end{proposition}
+
+  \begin{theorem}
+    For every graph $\calx$, there exists a tree $\widetilde{\calx}$, unique upto isomorphism, which covers $\calx$.
+  \end{theorem}
+
+  \begin{definition}
+    The $\widetilde{\calx}$ as in the above theorem is called a \emph{universal cover} of $\calx$.
+    The Galois group $\Gal(\widetilde{\calx}|\calx)$ is called the \emph{fundamental group} of $\calx$.
+    \begin{align*}
+      \pi_1(\calx) := \Gal(\widetilde{\calx} | \calx)
+    \end{align*}
+  \end{definition}
+  \begin{remark}
+    Because $\widetilde{\calx}$ is only defined upto isomorphism, the fundamental group as in the above definition is also only defined upto isomorphism.
+  \end{remark}
+
+  \begin{theorem}[Galois Correspondence of Covering Spaces]
+    There is a 1-1 correspondence between the subgroups of $\pi_1(\calx)$ and isomorphism classes of covers of $\calx$, given by the following maps
+    \begin{align*}
+      \{\mbox{subgroup of } \pi_1(\calx)\} &\longleftrightarrow  \{\mbox{covers of $\calx$} \}\\
+      H &\longmapsto \calx / H\\
+      \pi_1(\calz) & \longmapsfrom \calz
+    \end{align*}
+    Under this correspondence, the normal subgroups of $\pi_1(\calx)$ correspond to Galois covers of $\calx$.
+  \end{theorem}

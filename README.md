@@ -1,1 +1,3 @@
-# mc2019-Galois-correspondence-of-covering-spaces
+# Course notes for *Galois correspondence of covering spaces*
+
+Where: Mathcamp 2019 

@@ -1,0 +1,75 @@
+  The basic examples relevant to us are:
+  \begin{description}
+    \item[0-dim: ]
+      A 0-dimensional topological space is a collection of points.
+    \item[1-dim: ]
+      A 1-dimensional topological space is a graph - a collection of edges glued together at vertices.
+    \item[2-dim: ]
+      A 2-dimensional topological is a graph with faces.
+  \end{description}
+  All the maps between topological spaces that we'll consider will be continuous.
+  A map $f:X \rightarrow Y$ between topological spaces is a \emph{homeomorphism} if it has a continuous inverse.
+
+  \begin{ex}
+    Examples of covering spaces.
+    \todo{examples of covering spaces.}
+  \end{ex}
+
+  \begin{mdframed}
+    Assume from now on that all our spaces are \emph{path-connected}.
+  \end{mdframed}
+
+
+
+
+
+
+
+
+
+
+  \subsection{Covering spaces}
+
+  $X$ is called a \emph{cover} of $Y$.
+  The set $\pi^{-1}(y)$ is called the fiber over $y$
+  If $\cali$ is finite then $\pi$ is called a \emph{finite cover}.
+
+  \begin{qbox}
+    Show that every cover of a graph (resp. 2-graph) is a graph (resp. 2-graph).
+  \end{qbox}
+
+
+
+
+
+
+
+
+
+
+
+
+  \subsection{Group action}
+  A left group action of $G$ on a space $X$, denoted $G \groupaction X$, is a collection of continuous maps
+  \begin{align*}
+    g \cdot - : X &\longrightarrow X\\
+    x &\longmapsto gx
+  \end{align*}
+  satisfying $ex = x$, where $e$ is the identity element in $G$ and $g(hx) = (gh)x$ for all $g,h \in G$.
+  \begin{definition}
+    We say that $G \groupaction X$ is \emph{properly discontinous} if every point $x \in X$ has an open neighborhood $U$ such that
+    \begin{equation*}
+      g U \cap U = \varnothing
+    \end{equation*}
+    for all $g \in G$.
+  \end{definition}
+  \begin{qbox}
+    Show that if $g U \cap U = \varnothing$ for all $g \in G$ then $g U \cap hU = \varnothing$ for all $g,h \in G$.
+  \end{qbox}
+  \begin{ex}
+    add example of maps between $S^1$: rotation and reflection.
+    \todo{add example of maps between $S^1$: rotation and reflection.}
+  \end{ex}
+  \begin{qbox}
+    Show that if $G \groupaction X$ is free then $X \rightarrow G \backslash X$ is a cover.
+  \end{qbox}

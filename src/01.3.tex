@@ -1,0 +1,78 @@
+  A graph $X$ is pair $(X_0,X_1)$ of vertices and edges.
+  The \emph{degree} of a vertex $x \in X_0$ is the number of edges meeting at $x$, where we count self-edges twice.
+  We say that $X$ is \emph{connected} if any two vertices $x,y \in X_0$ are connected by a finite path of edges.
+  \begin{mdframed}
+    We will assume that all our graphs are connected and all the vertices have finite degrees.
+    The set of vertices itself can be infinite.
+  \end{mdframed}
+
+  We want to think of graphs as 1-dimensional topological spaces.
+  If there are no loops, we can define maps between graphs $f:X \rightarrow Y$ to be compatible pairs of maps $f_0:X_0 \rightarrow Y_0$ and $f_1:X_1 \rightarrow Y_1$, but when there are loops we need to specify directions for the loops. The map $f_1$ does not keep track of the "directions".
+  More precisely, we want to be able to differentiate between the two maps
+  \begin{align*}
+    [0,1] &\rightarrow [0,1] &&& [0,1] &\rightarrow [0,1] \\
+    x &\mapsto x &&& x&\mapsto1-x
+  \end{align*}
+  For this, we assign labels to each edge so that if $a$ is one direction then $a^{-1}$ is the reverse direction.
+  We can then talk about the source $d_0 a$ and target $d_1 a$ vertex of each label, so that
+  \begin{align*}
+    d_0 a = d_1 a^{-1} && d_1 a = d_0 a^{-1}.
+  \end{align*}
+  Denote by $X_{\ell}$ the set of all labels (and their inverses).
+  A map between the graphs $f:X \rightarrow Y$ is then a map between the label sets
+  \begin{align*}
+    f_\ell: X_\ell \rightarrow Y_\ell
+  \end{align*}
+  such that if $f_\ell(a^{-1}) = f_\ell(a)^{-1}$ and $d_i a = d_j b$ then $d_i f_\ell(a) = d_j f_\ell(b)$.
+  It is an \emph{isomorphism} if it is bijective.
+  \begin{align*}
+    [0,1] &\rightarrow [0,1] &&& [0,1] &\rightarrow [0,1] \\
+    x &\mapsto x &&& x&\mapsto1-x \\
+    a &\mapsto a &&& a&\mapsto a^{-1} \\
+    a^{-1} &\mapsto a^{-1} &&& a^{-1}&\mapsto a
+  \end{align*}
+  A map between graphs $f: X \rightarrow Y$ naturally induces a map between vertices $f_0 : X_0 \rightarrow Y_0$.
+  %
+  %
+  %
+  %
+  %
+  %
+  %
+  %
+  %
+  % \subsection{Covering spaces}
+  % \begin{definition}
+  %   We say that $\pi:X \rightarrow Y$ is a \emph{cover} or a \emph{covering map} if for every vertex $v$, every vertex $w \in \pi_0^{-1}(v)$ has the same degree as $v$.
+  % \end{definition}
+  % We call $\pi_0^{-1}(v)$ the fiber over $v$.
+  % \begin{ex}
+  %   \todo{example of covering space}
+  % \end{ex}
+  % We can construct covers using group actions.
+  % A left group action of $G$ on a graph $X$, denoted $G \groupaction X$, is a collection of graph maps
+  % \begin{align*}
+  %   g \cdot - : X &\longrightarrow X\\
+  %   x &\longmapsto gx
+  % \end{align*}
+  % satisfying $ex = x$, where $e$ is the identity element in $G$ and $g(hx) = (gh)x$ for all $g,h \in G$.
+  % A left $G$-action on $X$ naturally defines left $G$-actions on $X_0$, $X_1$ and $X_\ell$.
+  % The quotient graph $G \backslash X$ is then the graph with vertices, edges, and labels being $X_0/G$, $X_1/G$, and $X_\ell/G$ respectively.
+  % \begin{definition}
+  %   We say that $G \groupaction X$ is \emph{free} if the induced group action on the set of vertices $X_0$ is free.
+  % \end{definition}
+  % \begin{ex}
+  %   \todo{add example of maps between $S^1$: rotation and reflection.}
+  % \end{ex}
+  % \begin{qbox}
+  %   Show that if $G \groupaction X$ is free then $X \rightarrow G \backslash X$ is a cover.
+  % \end{qbox}
+  % \begin{definition}
+  %   We say that a cover $\pi:X \rightarrow Y$ is a \emph{Galois cover} if there exists a left group action $G \groupaction X$ such that $Y \cong G \backslash X$.
+  % \end{definition}
+  % \begin{qbox}
+  %   Come up with a cover that is not-Galois.
+  % \end{qbox}
+  %
+  %
+  %
